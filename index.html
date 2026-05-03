@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>𑣲⋆｡˚ Overside</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --coral:#ff8c69;--purple:#b06fff;--sky:#7ec8e3;
+  --mint:#a8e6cf;--cream:#fff8f0;--dark:#1a1024;--mid:#3d2d5e;
+}
+html,body{min-height:100vh;font-family:'Sora',sans-serif;color:var(--dark);overflow-x:hidden;cursor:none;background:var(--cream);}
+
+#cur{position:fixed;width:12px;height:12px;background:var(–coral);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:multiply;}
+
+.bg{position:fixed;inset:0;z-index:-3;background:linear-gradient(150deg,#ddf0ff 0%,#fde8c8 45%,#ffd6e8 100%);}
+.blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.3;z-index:-2;animation:blob 9s ease-in-out infinite;}
+.b1{width:500px;height:500px;background:#7ec8e3;top:-150px;left:-150px;}
+.b2{width:350px;height:350px;background:#d4b8e0;bottom:-100px;right:-80px;animation-delay:3s;}
+.b3{width:280px;height:280px;background:#a8e6cf;top:40%;left:10%;animation-delay:6s;}
+@keyframes blob{0%,100%{transform:scale(1) translate(0,0);}50%{transform:scale(1.08) translate(20px,-20px);}}
+
+.wrap{max-width:680px;margin:0 auto;padding:56px 24px 80px;display:flex;flex-direction:column;}
+
+.s{animation:up .7s ease both;}
+.s1{animation-delay:.0s}.s2{animation-delay:.12s}.s3{animation-delay:.22s}
+.s4{animation-delay:.32s}.s5{animation-delay:.42s}.s6{animation-delay:.52s}.s7{animation-delay:.62s}
+@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;font-family:‘Space Mono’,monospace;font-size:10px;letter-spacing:2px;color:var(–mid);opacity:.5;margin-bottom:48px;}
+
+.hero{text-align:center;margin-bottom:36px;}
+.hero-deco{font-size:13px;letter-spacing:3px;color:var(–coral);opacity:.75;margin-bottom:10px;}
+.logo-wrap{position:relative;display:inline-block;margin-bottom:8px;}
+.logo{font-size:clamp(56px,12vw,96px);font-weight:700;line-height:1;letter-spacing:-3px;background:linear-gradient(130deg,#ff8c69 0%,#b06fff 50%,#7ec8e3 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo-stars{position:absolute;top:-14px;right:-52px;font-size:22px;-webkit-text-fill-color:var(–coral);animation:spin 3s ease-in-out infinite;}
+@keyframes spin{0%,100%{transform:rotate(-8deg) scale(1);}50%{transform:rotate(8deg) scale(1.15);}}
+.tagline{font-size:13px;font-weight:300;letter-spacing:2px;color:var(–mid);opacity:.6;margin-top:6px;}
+.tagline span{opacity:.4;margin:0 6px;}
+
+.dline{text-align:center;font-size:12px;letter-spacing:4px;color:var(–mid);opacity:.3;margin:24px 0;}
+
+.glass{background:rgba(255,255,255,.5);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);border-radius:22px;padding:28px 26px;margin-bottom:14px;transition:transform .25s,box-shadow .25s;}
+.glass:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.08);}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.vcard{background:rgba(255,255,255,.45);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.85);border-radius:20px;padding:22px 18px;transition:transform .25s,box-shadow .25s;}
+.vcard:hover{transform:translateY(-5px) rotate(-.5deg);box-shadow:0 14px 36px rgba(0,0,0,.08);}
+.vcard-icon{font-size:28px;margin-bottom:10px;}
+.vcard-title{font-weight:700;font-size:14px;margin-bottom:5px;}
+.vcard-desc{font-size:11px;opacity:.55;line-height:1.65;font-weight:300;}
+
+.sec-label{font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(–coral);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.sec-label::after{content:’’;flex:1;height:1px;background:linear-gradient(90deg,rgba(255,140,105,.4),transparent);}
+
+.info-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.05);}
+.info-row:last-child{border-bottom:none;}
+.info-icon{font-size:20px;flex-shrink:0;margin-top:2px;}
+.info-text b{font-size:13px;font-weight:700;}
+.info-text p{font-size:11px;opacity:.55;margin-top:3px;line-height:1.6;}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.tag{background:rgba(255,255,255,.6);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.9);border-radius:50px;padding:6px 14px;font-size:11px;font-weight:600;color:var(–mid);transition:transform .2s,background .2s;}
+.tag:hover{transform:scale(1.08) rotate(-1deg);background:rgba(255,255,255,.85);}
+
+.cta{background:linear-gradient(135deg,rgba(255,140,105,.12),rgba(176,111,255,.12));border:1.5px solid rgba(255,140,105,.25);border-radius:24px;padding:38px 28px;text-align:center;margin-bottom:14px;}
+.cta-pre{font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(–coral);margin-bottom:14px;}
+.cta-title{font-size:clamp(20px,5vw,30px);font-weight:700;line-height:1.3;margin-bottom:8px;}
+.cta-sub{font-size:12px;opacity:.5;margin-bottom:26px;}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(–coral),var(–purple));color:#fff;font-family:‘Sora’,sans-serif;font-weight:700;font-size:13px;letter-spacing:.5px;padding:13px 30px;border-radius:50px;text-decoration:none;cursor:none;border:none;box-shadow:0 8px 24px rgba(255,140,105,.35);transition:transform .2s,box-shadow .2s;}
+.btn:hover{transform:scale(1.06);box-shadow:0 14px 32px rgba(255,140,105,.5);}
+
+.aesthetic{font-family:‘Space Mono’,monospace;font-size:10px;line-height:2.4;letter-spacing:1px;color:var(–mid);opacity:.55;padding:18px 22px;border-left:2px solid rgba(176,111,255,.3);margin-bottom:14px;}
+.aesthetic i{color:var(–coral);font-style:normal;}
+
+footer{text-align:center;font-family:‘Space Mono’,monospace;font-size:9px;letter-spacing:3px;opacity:.25;text-transform:uppercase;margin-top:32px;line-height:2.2;}
+
+.fdeco{position:fixed;pointer-events:none;font-size:26px;opacity:.12;user-select:none;animation:fd var(–d,7s) ease-in-out infinite;}
+@keyframes fd{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-22px) rotate(7deg);}}
+
+@media(max-width:480px){.grid{grid-template-columns:1fr;}.logo-stars{display:none;}.topbar{display:none;}}
+</style>
+
+</head>
+<body>
+
+<div id="cur"></div>
+<div class="bg"></div>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+
+<div class="fdeco" style="top:8%;left:3%;--d:6s;">🌴</div>
+<div class="fdeco" style="top:22%;right:3%;--d:8s;animation-delay:1s;">✦</div>
+<div class="fdeco" style="top:55%;left:2%;--d:7s;animation-delay:2s;">𑣲</div>
+<div class="fdeco" style="top:70%;right:4%;--d:5s;animation-delay:3s;">🌊</div>
+<div class="fdeco" style="bottom:12%;left:6%;--d:9s;animation-delay:.5s;">⭐</div>
+<div class="fdeco" style="bottom:20%;right:2%;--d:6s;animation-delay:4s;">🌸</div>
+
+<div class="wrap">
+
+  <div class="topbar s s1">
+    <span>𑣲 ⋆｡˚ overside</span>
+    <span>serveur communautaire ﹒ discord</span>
+  </div>
+
+  <div class="hero s s2">
+    <div class="hero-deco">_ _ &nbsp; 𑣲⋆｡ ﹒ ۫ ꣑⋆.˚༄ &nbsp; _ _</div>
+    <div class="logo-wrap">
+      <div class="logo">Overside</div>
+      <div class="logo-stars">⋆｡˚✮</div>
+    </div>
+    <div class="tagline">*chill*<span>﹒</span>🌴<span>﹒</span>fun<span>﹒</span>summer vibes</div>
+    <div class="tagline" style="margin-top:4px;font-size:11px;">✦ ݁ ˖ &nbsp; serveur ﹒ communautaire &nbsp; ⊹ ˖</div>
+  </div>
+
+  <div class="aesthetic s s3">
+    <i>*~*</i> &nbsp; ᯓ𑣲 bienvenue sur overside &nbsp; ⊹ ˖ Ი𐑼 &nbsp; 𐙚<br>
+    fun &amp; summer vibes &nbsp; ‧₊˚<br>
+    ˙⋆✮ &nbsp; events &amp; good vibes &nbsp; /overside<br>
+    <i>﹒</i> &nbsp; ─ &nbsp; communauté &nbsp; ﹒ &nbsp; discord.gg/overside &nbsp; ─
+  </div>
+
+  <div class="tags s s3">
+    <span class="tag">⋆ chill</span>
+    <span class="tag">✦ good vibes</span>
+    <span class="tag">🌴 summer</span>
+    <span class="tag">𑣲 fun</span>
+    <span class="tag">˚ events</span>
+    <span class="tag">🎵 musique</span>
+    <span class="tag">🎮 gaming</span>
+    <span class="tag">🌊 social</span>
+  </div>
+
+  <div class="dline">─ ﹒ ⋆ ﹒ ─ ﹒ ⋆ ﹒ ─</div>
+
+  <div class="sec-label s s4">⋆｡˚ l'ambiance</div>
+  <div class="grid s s4">
+    <div class="vcard">
+      <div class="vcard-icon">🌴</div>
+      <div class="vcard-title">﹒ Chill Zone</div>
+      <div class="vcard-desc">Un espace pour se détendre et parler de tout sans prise de tête ˖⊹</div>
+    </div>
+    <div class="vcard">
+      <div class="vcard-icon">🎉</div>
+      <div class="vcard-title">﹒ Events</div>
+      <div class="vcard-desc">Concours, soirées, activités — du contenu régulier pour la commu ✦</div>
+    </div>
+    <div class="vcard">
+      <div class="vcard-icon">🤝</div>
+      <div class="vcard-title">﹒ Communauté</div>
+      <div class="vcard-desc">Ambiance bienveillante, tout le monde est le bienvenu ꣑⋆</div>
+    </div>
+    <div class="vcard">
+      <div class="vcard-icon">🎵</div>
+      <div class="vcard-title">﹒ Musique</div>
+      <div class="vcard-desc">Partage de sons, playlist, bonne humeur 24/7 ‧₊˚</div>
+    </div>
+  </div>
+
+  <div class="dline">⋆ ﹒ 𑣲 ﹒ ⋆ ﹒ 𑣲 ﹒ ⋆</div>
+
+  <div class="glass s s5">
+    <div class="sec-label">ᯓ ce qu'on propose</div>
+    <div class="info-row">
+      <div class="info-icon">☀️</div>
+      <div class="info-text">
+        <b>*~* Summer vibes toute l'année</b>
+        <p>Une atmosphère légère et positive, comme une journée à la plage ⊹ ˖</p>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-icon">🎮</div>
+      <div class="info-text">
+        <b>﹒ Gaming &amp; activités</b>
+        <p>Parties, tournois, sessions vc — on s'ennuie jamais ᯓ𑣲</p>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-icon">💬</div>
+      <div class="info-text">
+        <b>﹒ Discussion libre</b>
+        <p>Memes, actu, life advice, talk de 3h du mat ✦ ݁ ˖</p>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-icon">🌸</div>
+      <div class="info-text">
+        <b>꣑⋆ Modération bienveillante</b>
+        <p>Une équipe à l'écoute pour que tout le monde se sente bien ‧₊˚</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dline">─ &nbsp; ⋆.˚.༄ &nbsp; ─</div>
+
+  <div class="cta s s6">
+    <div class="cta-pre">⊹ ˖ Ი𐑼 ﹒ rejoins-nous ﹒ 𐙚 ˖ ⊹</div>
+    <div class="cta-title">Prêt pour les<br/>summer vibes ? 🌊</div>
+    <div class="cta-sub">*~* ᯓ𑣲 &nbsp; viens chill avec nous &nbsp; ⋆｡˚ ✮</div>
+    <a href="https://discord.gg/overside" class="btn">🌴 Rejoindre /overside</a>
+  </div>
+
+  <footer class="s s7">
+    𑣲 ⋆｡˚ overside ﹒ 2025 ﹒ made with love ˖ ⊹<br>
+    ─ ﹒ ⋆ ﹒ discord.gg/overside ﹒ ⋆ ﹒ ─
+  </footer>
+
+</div>
+
+<script>
+const cur=document.getElementById('cur');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';
+  cur.style.top=e.clientY+'px';
+});
+document.querySelectorAll('a,.vcard,.tag,.glass').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='22px';cur.style.height='22px';cur.style.background='#b06fff';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='12px';cur.style.height='12px';cur.style.background='var(--coral)';});
+});
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/innerWidth-.5)*25,y=(e.clientY/innerHeight-.5)*25;
+  document.querySelectorAll('.blob').forEach((b,i)=>{b.style.transform=`translate(${x*(i+1)*.35}px,${y*(i+1)*.35}px)`;});
+});
+</script>
+
+</body>
+</html>
